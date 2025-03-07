@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.5s ease-in-out;
+  padding: 20px;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus, textarea:focus {
+  border-color: #fdbb2d;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  box-shadow: 0 10px 25px rgba(255, 126, 95, 0.5);
+  transform: scale(1.05);
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 18px;
+  margin: 20px 0;
+  border-left: 8px solid #fdbb2d;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.task-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.task-item button {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
+}
+
+.task-item button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: 95%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}
+
