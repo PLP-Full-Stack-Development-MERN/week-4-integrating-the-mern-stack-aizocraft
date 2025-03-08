@@ -3,7 +3,7 @@ import TaskForm from "../components/TaskForm";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <h1>Task Manager</h1>
       <TaskForm />
       <TaskList />

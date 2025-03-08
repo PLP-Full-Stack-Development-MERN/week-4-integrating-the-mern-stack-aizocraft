@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { updateTask, deleteTask } from "../api"; // Import the API functions
 import "../styles.css"; // Ensure styles are applied
 
 const TaskItem = ({ task, fetchTasks }) => {
@@ -8,7 +8,7 @@ const TaskItem = ({ task, fetchTasks }) => {
   // Handle task deletion
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${task._id}`);
+      await deleteTask(task._id); // Use the deleteTask function from api.js
       fetchTasks(); // Re-fetch tasks after deleting
     } catch (error) {
       console.error("Error deleting task:", error);
@@ -19,7 +19,7 @@ const TaskItem = ({ task, fetchTasks }) => {
   const toggleStatus = async () => {
     const newStatus = status === "pending" ? "completed" : "pending"; // Toggle between pending and completed
     try {
-      const response = await axios.put(`http://localhost:5000/api/tasks/${task._id}`, { status: newStatus });
+      const response = await updateTask(task._id, { status: newStatus }); // Use the updateTask function from api.js
       console.log("Status update response:", response.data); // Log the response from the backend
       if (response.data) {
         setStatus(newStatus); // Update the local status state

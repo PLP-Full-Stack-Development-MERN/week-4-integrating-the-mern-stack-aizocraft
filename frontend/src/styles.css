@@ -9,56 +9,99 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 300% 300%;
+  animation: animatedBG 8s infinite alternate;
   color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  transition: background 0.5s ease-in-out;
   padding: 20px;
 }
 
-@keyframes gradientBG {
+/* Background Animation */
+@keyframes animatedBG {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
-.app {
+/* NAVBAR */
+.navbar {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(25px);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
+  backdrop-filter: blur(15px);
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.navbar .nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-buttons button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
+.nav-buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* MAIN CONTAINER */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
 h1 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  margin-bottom: 25px;
   text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.3);
 }
 
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   background: rgba(255, 255, 255, 0.2);
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Inputs */
 input, textarea {
   width: 100%;
   padding: 15px;
@@ -75,12 +118,13 @@ input::placeholder, textarea::placeholder {
 }
 
 input:focus, textarea:focus {
-  border-color: #fdbb2d;
+  border-color: #ff7e5f;
   outline: none;
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
+/* Button */
 button {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color: white;
@@ -100,10 +144,22 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* TASK LIST */
+.task-list {
+  margin-top: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* TASK ITEM */
 .task-item {
-  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
   padding: 18px;
-  margin: 20px 0;
   border-left: 8px solid #fdbb2d;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -115,17 +171,46 @@ button:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-.task-item button {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
-  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
+.task-item .task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.task-item button:hover {
-  background: linear-gradient(135deg, #ff4b2b, #ff416c);
-  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
-  transform: scale(1.05);
+.task-item .task-title {
+  font-size: 20px;
+  font-weight: 600;
 }
 
+.task-item .task-status {
+  background: #ff7e5f;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.task-item .task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* TASK BUTTONS */
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-buttons button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -137,8 +222,9 @@ button:hover {
   }
 }
 
+/* RESPONSIVE */
 @media (max-width: 600px) {
-  .app {
+  .navbar, .container {
     width: 95%;
     padding: 25px;
   }
@@ -147,12 +233,16 @@ button:hover {
     font-size: 30px;
   }
 
-  input, textarea {
-    font-size: 16px;
+  .nav-buttons {
+    gap: 10px;
   }
 
-  button {
-    font-size: 16px;
+  .task-item {
+    padding: 15px;
+  }
+
+  .task-item .task-meta {
+    flex-direction: column;
+    gap: 5px;
   }
 }
-
